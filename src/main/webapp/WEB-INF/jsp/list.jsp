@@ -14,10 +14,10 @@
 <body>
 
 
-<form>
+<form action="http://localhost:8080/book/1000">
 
-    用户名：<input type="text" name="fname" value="Mickey"/><br/>
-    密码:<input type="text" name="lname" value="Mouse"/><br/>
+    用户名：<input type="text" name="fname" value=""/><br/>
+    密码:   <input type="text" name="lname" value=""/><br/>
     <input type="submit" value="Submit"/>
 
 </form>

@@ -1,6 +1,7 @@
 package com.lee.web;
 
 import com.lee.entity.Book;
+import com.lee.entity.Data;
 import com.lee.service.BookService;
 import com.lee.service.impl.BookServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -54,20 +55,27 @@ public class BookController {
 
     /**
      * 返回json
+     *
      * @param bookId
      * @return
      */
 
     @RequestMapping(value = "/{bookId}", method = RequestMethod.GET)
     public @ResponseBody
-    Book getBookInJson(@PathVariable Integer bookId) {
-        return bookService.getById(bookId);
+    Data getBookInJson(@PathVariable Integer bookId) {
+
+        Data data = new Data();
+        List<Book> bookList = bookService.getList();
+        data.setBookList(bookList);
+        data.setCode(200);
+        return data;
+
     }
 
 
-    @RequestMapping(value="/json/{bookId}",method=RequestMethod.GET)
-    public ResponseEntity<Book> getCourseInJson2(@PathVariable Integer bookId){
-        Book book =   bookService.getById(bookId);
+    @RequestMapping(value = "/json/{bookId}", method = RequestMethod.GET)
+    public ResponseEntity<Book> getCourseInJson2(@PathVariable Integer bookId) {
+        Book book = bookService.getById(bookId);
         return new ResponseEntity<Book>(book, HttpStatus.OK);
     }
 
