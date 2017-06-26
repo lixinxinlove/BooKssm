@@ -3,7 +3,6 @@
   User: lixinxin
   Date: 2017/6/24
   Time: 19:55
-  To change this template use File | Settings | File Templates.
 --%>
 
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
@@ -16,7 +15,7 @@
 
     <div>
         ${book.name}
-            ${book.getName()}
+        ${book.getName()}
     </div>
 
 </body>

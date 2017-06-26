@@ -53,6 +53,15 @@ public class BookController {
         return "detail";
     }
 
+
+    @RequestMapping(value = "/add", method = RequestMethod.GET)
+    private String addBook(){
+        bookService.addBook(1004,"Kotlin",10);
+
+        return "detail";
+    }
+
+
     /**
      * 返回json
      *

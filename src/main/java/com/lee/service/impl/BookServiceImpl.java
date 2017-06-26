@@ -24,4 +24,11 @@ public class BookServiceImpl implements BookService {
     public List<Book> getList() {
         return bookDao.queryAll();
     }
+
+    public int addBook(long bookId, String name, int number) {
+
+        bookDao.addBook(bookId,name,number);
+
+        return 0;
+    }
 }

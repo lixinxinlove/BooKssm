@@ -23,4 +23,6 @@ public interface BookService {
      * @return
      */
     List<Book> getList();
+
+    int addBook(long bookId, String name, int number);
 }
