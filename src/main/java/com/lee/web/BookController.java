@@ -33,15 +33,13 @@ public class BookController {
         for (Book book : list) {
             System.out.print(book.toString());
         }
-
-
         //  model.addAttribute("list", list);
         // list.jsp + model = ModelAndView
         return "list";// WEB-INF/jsp/"list".jsp
     }
 
     @RequestMapping(value = "/{bookId}/detail", method = RequestMethod.GET)
-    private String detail(@PathVariable("bookId") Long bookId, Model model) {
+    private String detail(@PathVariable("bookId") Integer bookId, Model model) {
         if (bookId == null) {
             return "redirect:/book/list";
         }
@@ -55,9 +53,10 @@ public class BookController {
 
 
     @RequestMapping(value = "/add", method = RequestMethod.GET)
-    private String addBook(){
-        bookService.addBook(1004,"Kotlin",10);
-
+    private String addBook() {
+        Book book = new Book(1006, "php", 12);
+        int i = bookService.addBook(book);
+        System.out.print(i);
         return "detail";
     }
 

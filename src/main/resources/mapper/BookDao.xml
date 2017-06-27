@@ -23,9 +23,8 @@
 			book
 	</select>
 
-
-    <insert id="addBook">
-		INSERT INTO book(book_id,name,number) VALUE (#{bookId},#{name},#{number})
+    <insert id="addBook" parameterType="Book">
+		INSERT INTO book VALUES (#{bookId},#{name},#{number})
 	</insert>
 
 

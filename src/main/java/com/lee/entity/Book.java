@@ -5,7 +5,7 @@ package com.lee.entity;
  */
 public class Book {
 
-    private long bookId;// 图书ID
+    private int bookId;// 图书ID
 
     private String name;// 图书名称
 
@@ -14,7 +14,7 @@ public class Book {
     public Book() {
     }
 
-    public Book(long bookId, String name, int number) {
+    public Book(int bookId, String name, int number) {
         this.bookId = bookId;
         this.name = name;
         this.number = number;
@@ -24,7 +24,7 @@ public class Book {
         return bookId;
     }
 
-    public void setBookId(long bookId) {
+    public void setBookId(int bookId) {
         this.bookId = bookId;
     }
 

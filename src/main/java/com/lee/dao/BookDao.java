@@ -23,7 +23,6 @@ public interface BookDao {
     List<Book> queryAll();
 
 
-    int addBook(long bookId, String name, int number);
-
+    int addBook(Book book);
 
 }
