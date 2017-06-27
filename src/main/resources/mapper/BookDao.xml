@@ -28,4 +28,9 @@
 	</insert>
 
 
+    <delete id="deleteById">
+        DELETE FROM book WHERE book_id=#{bookId}
+    </delete>
+
+
 </mapper>

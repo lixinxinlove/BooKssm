@@ -25,4 +25,6 @@ public interface BookDao {
 
     int addBook(Book book);
 
+    int deleteById(int id);
+
 }

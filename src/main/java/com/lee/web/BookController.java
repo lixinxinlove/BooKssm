@@ -21,7 +21,6 @@ import java.util.List;
 @RequestMapping("/book") // url:/模块/资源/{id}/细分 /seckill/list
 public class BookController {
 
-
     @Autowired
     private BookService bookService;
 
@@ -33,8 +32,6 @@ public class BookController {
         for (Book book : list) {
             System.out.print(book.toString());
         }
-        //  model.addAttribute("list", list);
-        // list.jsp + model = ModelAndView
         return "list";// WEB-INF/jsp/"list".jsp
     }
 
@@ -61,30 +58,32 @@ public class BookController {
     }
 
 
+    @RequestMapping(value = "/delete/{bookId}", method = RequestMethod.GET)
+    private String deleteBook(@PathVariable("bookId") Integer bookId) {
+        int i = bookService.deleteById(bookId);
+        System.out.print(i);
+        return "detail";
+    }
+
     /**
      * 返回json
      *
      * @param bookId
      * @return
      */
-
     @RequestMapping(value = "/{bookId}", method = RequestMethod.GET)
     public @ResponseBody
     Data getBookInJson(@PathVariable Integer bookId) {
-
         Data data = new Data();
         List<Book> bookList = bookService.getList();
         data.setBookList(bookList);
         data.setCode(200);
         return data;
-
     }
-
 
     @RequestMapping(value = "/json/{bookId}", method = RequestMethod.GET)
     public ResponseEntity<Book> getCourseInJson2(@PathVariable Integer bookId) {
         Book book = bookService.getById(bookId);
         return new ResponseEntity<Book>(book, HttpStatus.OK);
     }
-
 }

@@ -26,4 +26,6 @@ public interface BookService {
 
 
     int addBook(Book book);
+
+    int deleteById(int bookId);
 }

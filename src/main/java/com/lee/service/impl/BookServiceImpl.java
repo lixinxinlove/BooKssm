@@ -28,4 +28,8 @@ public class BookServiceImpl implements BookService {
     public int addBook(Book book) {
         return bookDao.addBook(book);
     }
+
+    public int deleteById(int bookId) {
+        return bookDao.deleteById(bookId);
+    }
 }
