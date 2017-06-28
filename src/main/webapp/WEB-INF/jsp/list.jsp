@@ -24,7 +24,7 @@
 
 
 <div>
-    ${list.get(0).getName}
+    ${list.size}
 </div>
 
 </body>

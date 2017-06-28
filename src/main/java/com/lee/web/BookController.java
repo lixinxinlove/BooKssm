@@ -32,7 +32,7 @@ public class BookController {
         for (Book book : list) {
             System.out.print(book.toString());
         }
-        return "list";// WEB-INF/jsp/"list".jsp
+        return "register";// WEB-INF/jsp/"list".jsp
     }
 
     @RequestMapping(value = "/{bookId}/detail", method = RequestMethod.GET)
