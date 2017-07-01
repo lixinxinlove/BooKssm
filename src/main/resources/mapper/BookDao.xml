@@ -7,29 +7,27 @@
     <select id="queryById" resultType="Book" parameterType="long">
         <!-- 具体的sql -->
         SELECT
-        book_id,
-        name,
-        number
+        *
         FROM
-        book
+        t_book
         WHERE
-        book_id = #{bookId}
+        id = #{bookId}
     </select>
 
     <select id="queryAll" resultType="Book">
 		SELECT
 		*
 		FROM
-			book
+			t_book
 	</select>
 
     <insert id="addBook" parameterType="Book">
-		INSERT INTO book VALUES (#{bookId},#{name},#{number})
+		INSERT INTO book VALUES ()
 	</insert>
 
 
     <delete id="deleteById">
-        DELETE FROM book WHERE book_id=#{bookId}
+        DELETE FROM book WHERE id=#{bookId}
     </delete>
 
 

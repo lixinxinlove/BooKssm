@@ -25,7 +25,6 @@
 		INSERT INTO user(user_name,user_password) VALUES (#{userName},#{userPassword})
 	</insert>
 
-
     <delete id="deleteById">
         DELETE FROM user WHERE user_id=#{userId}
     </delete>

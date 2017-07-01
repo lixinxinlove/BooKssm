@@ -3,7 +3,6 @@ package com.lee.web;
 import com.lee.entity.Book;
 import com.lee.entity.Data;
 import com.lee.service.BookService;
-import com.lee.service.impl.BookServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -51,7 +50,7 @@ public class BookController {
 
     @RequestMapping(value = "/add", method = RequestMethod.GET)
     private String addBook() {
-        Book book = new Book(1006, "php", 12);
+        Book book = new Book();
         int i = bookService.addBook(book);
         System.out.print(i);
         return "detail";
