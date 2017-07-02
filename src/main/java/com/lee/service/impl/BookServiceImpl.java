@@ -17,11 +17,19 @@ public class BookServiceImpl implements BookService {
     @Autowired
     private BookDao bookDao;
 
-    public Book getById(long bookId) {
+    public Book getById(int bookId) {
         return bookDao.queryById(bookId);
     }
 
     public List<Book> getList() {
         return bookDao.queryAll();
+    }
+
+    public int addBook(Book book) {
+        return bookDao.addBook(book);
+    }
+
+    public int deleteById(int bookId) {
+        return bookDao.deleteById(bookId);
     }
 }

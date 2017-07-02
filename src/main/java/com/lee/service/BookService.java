@@ -15,7 +15,7 @@ public interface BookService {
      * @param bookId
      * @return
      */
-    Book getById(long bookId);
+    Book getById(int bookId);
 
     /**
      * 查询所有图书
@@ -23,4 +23,9 @@ public interface BookService {
      * @return
      */
     List<Book> getList();
+
+
+    int addBook(Book book);
+
+    int deleteById(int bookId);
 }
