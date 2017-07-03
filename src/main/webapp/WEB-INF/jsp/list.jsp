@@ -15,6 +15,10 @@
 </head>
 <body>
 
+<h1>${sessionScope.userName }登录成功!!!</h1>
+<h2>欢迎您,${sessionScope.userPassword }</h2>
+
+
 
 <form id="itemsForm" action="${pageContext.request.contextPath }/items/queryItems.action" method="post">
 

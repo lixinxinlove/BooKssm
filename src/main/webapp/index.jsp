@@ -2,16 +2,15 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <body>
-<h2>李鑫鑫book</h2>
+<h2>登录</h2>
 
 <form action="/user/login" method="post">
 
-    <input type="text" value="" name="userName">
-    <input type="text" value="" name="userPassword">
+    <input type="text" value="" name="userName"><br/>
+    <input type="text" value="" name="userPassword"><br/>
     <input type="submit" value="登录">
 
 </form>
-
 
 </body>
 </html>

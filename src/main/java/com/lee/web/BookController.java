@@ -32,7 +32,7 @@ public class BookController {
         for (Book book : list) {
             System.out.print(book.toString());
         }
-        return "list";// WEB-INF/jsp/"list".jsp
+        return "list";
     }
 
     @RequestMapping(value = "/{bookId}/detail", method = RequestMethod.GET)
@@ -48,7 +48,6 @@ public class BookController {
         return "detail";
     }
 
-
     @RequestMapping(value = "/add", method = RequestMethod.GET)
     private String addBook() {
         Book book = new Book();
@@ -56,7 +55,6 @@ public class BookController {
         System.out.print(i);
         return "detail";
     }
-
 
     @RequestMapping(value = "/delete/{bookId}", method = RequestMethod.GET)
     private String deleteBook(@PathVariable("bookId") Integer bookId) {
