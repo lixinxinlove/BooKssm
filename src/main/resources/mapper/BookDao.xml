@@ -19,6 +19,7 @@
 		*
 		FROM
 			t_book
+		LIMIT 0,10
 	</select>
 
     <insert id="addBook" parameterType="Book">

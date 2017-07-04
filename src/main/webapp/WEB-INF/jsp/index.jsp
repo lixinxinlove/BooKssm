@@ -6,8 +6,8 @@
 
 <form action="/user/login" method="post">
 
-    <input type="text" value="" name="userName"><br/>
-    <input type="text" value="" name="userPassword"><br/>
+    <input type="text" value="" name="userName"><br/><br/>
+    <input type="text" value="" name="userPassword"><br/><br/>
     <input type="submit" value="登录">
 
 </form>

@@ -18,45 +18,27 @@
 <h1>${sessionScope.userName }登录成功!!!</h1>
 <h2>欢迎您,${sessionScope.userPassword }</h2>
 
-
-
-<form id="itemsForm" action="${pageContext.request.contextPath }/items/queryItems.action" method="post">
-
-    商品列表：
+<form  >
+    书单：
     <table width="100%" border=1>
         <tr>
             <td>书号</td>
             <td>名称</td>
             <td>价格</td>
-            <td>出版社</td>
+            <td>作者</td>
             <td>编号</td>
         </tr>
-        <c:forEach items="${itemsList }" var="item">
+        <c:forEach items="${itemsList}" var="item">
             <tr>
-                <td><input type="checkbox" name="itemIds" value="${item.id }"></td>
+                <td>${item.id}</td>
                 <td>${item.title}</td>
                 <td>${item.marketPrice }</td>
                 <td>${item.author }</td>
                 <td>${item.isbn }</td>
             </tr>
         </c:forEach>
-
     </table>
 </form>
-
-
-<form action="http://localhost:8080/book/1000">
-
-    用户名：<input type="text" name="fname" value=""/><br/>
-    密码: <input type="text" name="lname" value=""/><br/>
-    <input type="submit" value="Submit"/>
-
-</form>
-
-
-<div>
-    ${list.size}
-</div>
 
 </body>
 </html>

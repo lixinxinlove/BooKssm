@@ -16,22 +16,22 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 
 @Controller
 @RequestMapping("/user") // url:/模块/资源/{id}/细分 /seckill/list
-@SessionAttributes({"userName","userPassword"})
+@SessionAttributes({"userName", "userPassword"})
 public class UserController {
 
     @Autowired
     private UserService userService;
 
-    @Autowired
-    private BookService bookService;
-
+    @RequestMapping(value = "/index", method = RequestMethod.GET)
+    private String index() {
+        return "index";
+    }
     @RequestMapping(value = "/register", method = RequestMethod.POST)
     private String register(String name, String password) {
         User user = new User();
         user.setUserName(name);
         user.setUserPassword(password);
         userService.addUser(user);
-
         return "list";
     }
 
@@ -40,9 +40,8 @@ public class UserController {
         User user = userService.queryByName(userName);
         if (user != null) {
             //转到另一个控制器
-            model.addAttribute("userName", "lixinxin");
-            model.addAttribute("userPassword", "lixinxinlove");
-
+            model.addAttribute("userName", userName);
+            model.addAttribute("userPassword", userPassword);
             return "redirect:/book/list ";
         } else {
             return "error";
