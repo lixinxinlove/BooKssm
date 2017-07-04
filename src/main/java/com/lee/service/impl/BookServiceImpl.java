@@ -2,6 +2,7 @@ package com.lee.service.impl;
 
 import com.lee.dao.BookDao;
 import com.lee.entity.Book;
+import com.lee.entity.LeePage;
 import com.lee.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -23,6 +24,10 @@ public class BookServiceImpl implements BookService {
 
     public List<Book> getList() {
         return bookDao.queryAll();
+    }
+
+    public List<Book> queryPage(LeePage leePage) {
+        return bookDao.queryPage(leePage);
     }
 
     public int addBook(Book book) {

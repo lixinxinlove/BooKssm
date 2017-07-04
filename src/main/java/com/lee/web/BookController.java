@@ -2,6 +2,7 @@ package com.lee.web;
 
 import com.lee.entity.Book;
 import com.lee.entity.Data;
+import com.lee.entity.LeePage;
 import com.lee.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -26,7 +27,12 @@ public class BookController {
 
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     private String list(Model model) {
-        List<Book> list = bookService.getList();
+
+        LeePage leePage = new LeePage();
+        leePage.setLimit(12);
+        leePage.setPage(2);
+
+        List<Book> list = bookService.queryPage(leePage);
         model.addAttribute("itemsList", list);
 
         for (Book book : list) {

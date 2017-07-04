@@ -1,6 +1,7 @@
 package com.lee.service;
 
 import com.lee.entity.Book;
+import com.lee.entity.LeePage;
 
 import java.util.List;
 
@@ -24,6 +25,10 @@ public interface BookService {
      */
     List<Book> getList();
 
+    /**
+     * 分页查
+     */
+    List<Book> queryPage(LeePage leePage);
 
     int addBook(Book book);
 

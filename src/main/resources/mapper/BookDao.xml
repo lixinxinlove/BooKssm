@@ -19,8 +19,17 @@
 		*
 		FROM
 			t_book
-		LIMIT 0,10
+
 	</select>
+
+    <select id="queryPage" resultType="Book" parameterType="LeePage">
+        SELECT
+        *
+        FROM
+        t_book
+        LIMIT #{page},#{limit}
+    </select>
+
 
     <insert id="addBook" parameterType="Book">
 		INSERT INTO book VALUES ()
