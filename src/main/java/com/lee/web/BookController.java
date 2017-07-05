@@ -29,17 +29,52 @@ public class BookController {
     private String list(Model model) {
 
         LeePage leePage = new LeePage();
-        leePage.setLimit(12);
-        leePage.setPage(2);
+        leePage.setLimit(10);
+        leePage.setPage(1);
 
         List<Book> list = bookService.queryPage(leePage);
         model.addAttribute("itemsList", list);
+        model.addAttribute("page", 1);
+        for (Book book : list) {
+            System.out.print(book.toString());
+        }
+        return "list";
+    }
+
+
+    @RequestMapping(value = "/prev/{page}", method = RequestMethod.GET)
+    private String prevPage(@PathVariable("page") Integer page, Model model) {
+        LeePage leePage = new LeePage();
+        leePage.setLimit(10);
+        leePage.setPage((page - 1) * 10 + 1);
+
+        List<Book> list = bookService.queryPage(leePage);
+        model.addAttribute("itemsList", list);
+        model.addAttribute("page", page);
+
+        return "list";
+    }
+
+
+    @RequestMapping(value = "/next/{page}", method = RequestMethod.GET)
+    private String nextPage(@PathVariable("page") Integer page, Model model) {
+
+        LeePage leePage = new LeePage();
+        leePage.setLimit(10);
+        leePage.setPage((page - 1) * 10 + 1);
+
+
+        List<Book> list = bookService.queryPage(leePage);
+        model.addAttribute("itemsList", list);
+        model.addAttribute("page", page);
+
 
         for (Book book : list) {
             System.out.print(book.toString());
         }
         return "list";
     }
+
 
     @RequestMapping(value = "/{bookId}/detail", method = RequestMethod.GET)
     private String detail(@PathVariable("bookId") Integer bookId, Model model) {

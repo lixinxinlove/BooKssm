@@ -13,12 +13,24 @@
 <head>
     <title>Title</title>
 </head>
+
+<script>
+    function prevPage() {
+        window.location = "/book/prev/" + (parseInt(document.getElementById("page").value) - 1);
+    }
+
+    function nextPage() {
+        window.location = "/book/next/" + (parseInt(document.getElementById("page").value) + 1);
+    }
+
+</script>
+
 <body>
 
 <h1>${sessionScope.userName }登录成功!!!</h1>
 <h2>欢迎您,${sessionScope.userPassword }</h2>
 
-<form  >
+<form>
     书单：
     <table width="100%" border=1>
         <tr>
@@ -38,7 +50,17 @@
             </tr>
         </c:forEach>
     </table>
+
 </form>
+
+<br/>
+
+<button onclick="prevPage()">上一页</button>
+
+<input type="text" value="${page}" id="page" name="page">
+
+<button onclick="nextPage()">下一页</button>
+
 
 </body>
 </html>
