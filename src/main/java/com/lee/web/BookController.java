@@ -9,8 +9,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
 
@@ -35,15 +37,14 @@ public class BookController {
         List<Book> list = bookService.queryPage(leePage);
         model.addAttribute("itemsList", list);
         model.addAttribute("page", 1);
-        for (Book book : list) {
-            System.out.print(book.toString());
-        }
+
         return "list";
     }
 
 
     @RequestMapping(value = "/prev/{page}", method = RequestMethod.GET)
     private String prevPage(@PathVariable("page") Integer page, Model model) {
+
         LeePage leePage = new LeePage();
         leePage.setLimit(10);
         leePage.setPage((page - 1) * 10 + 1);
@@ -58,20 +59,14 @@ public class BookController {
 
     @RequestMapping(value = "/next/{page}", method = RequestMethod.GET)
     private String nextPage(@PathVariable("page") Integer page, Model model) {
-
         LeePage leePage = new LeePage();
         leePage.setLimit(10);
         leePage.setPage((page - 1) * 10 + 1);
-
 
         List<Book> list = bookService.queryPage(leePage);
         model.addAttribute("itemsList", list);
         model.addAttribute("page", page);
 
-
-        for (Book book : list) {
-            System.out.print(book.toString());
-        }
         return "list";
     }
 
