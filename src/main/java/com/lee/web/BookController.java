@@ -45,28 +45,17 @@ public class BookController {
     @RequestMapping(value = "/prev/{page}", method = RequestMethod.GET)
     private String prevPage(@PathVariable("page") Integer page, Model model) {
 
-        LeePage leePage = new LeePage();
-        leePage.setLimit(10);
-        leePage.setPage((page - 1) * 10 + 1);
-
-        List<Book> list = bookService.queryPage(leePage);
-        model.addAttribute("itemsList", list);
-        model.addAttribute("page", page);
+        nextOrPrePage(page, model);
 
         return "list";
     }
 
 
+
+
     @RequestMapping(value = "/next/{page}", method = RequestMethod.GET)
     private String nextPage(@PathVariable("page") Integer page, Model model) {
-        LeePage leePage = new LeePage();
-        leePage.setLimit(10);
-        leePage.setPage((page - 1) * 10 + 1);
-
-        List<Book> list = bookService.queryPage(leePage);
-        model.addAttribute("itemsList", list);
-        model.addAttribute("page", page);
-
+        nextOrPrePage(page, model);
         return "list";
     }
 
@@ -120,4 +109,15 @@ public class BookController {
         Book book = bookService.getById(bookId);
         return new ResponseEntity<Book>(book, HttpStatus.OK);
     }
+
+
+    private void nextOrPrePage(@PathVariable("page") Integer page, Model model) {
+        LeePage leePage = new LeePage();
+        leePage.setLimit(10);
+        leePage.setPage((page - 1) * 10 + 1);
+        List<Book> list = bookService.queryPage(leePage);
+        model.addAttribute("itemsList", list);
+        model.addAttribute("page", page);
+    }
+
 }

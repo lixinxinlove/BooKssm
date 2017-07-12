@@ -12,5 +12,9 @@
 
 </form>
 
+<form action="/user/file" method="get">
+    <input type="submit" value="文件上传">
+</form>
+
 </body>
 </html>

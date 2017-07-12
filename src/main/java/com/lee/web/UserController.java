@@ -22,8 +22,13 @@ public class UserController {
 
     @RequestMapping(value = "/index", method = RequestMethod.GET)
     private String index() {
-
         return "index";
+    }
+
+
+    @RequestMapping(value = "/file", method = RequestMethod.GET)
+    private String file() {
+        return "uploadFile";
     }
 
     @RequestMapping(value = "/register", method = RequestMethod.POST)
