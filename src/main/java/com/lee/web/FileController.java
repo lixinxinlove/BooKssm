@@ -25,7 +25,7 @@ public class FileController {
     private String saveFile(@RequestParam(value = "file", required = false) MultipartFile file, String fileName, HttpServletRequest request) {
 
         System.out.println("开始");
-        String path = request.getSession().getServletContext().getRealPath("upload");
+        String path = request.getSession().getServletContext().getRealPath("upload");    //文件路径
         String file_name = file.getOriginalFilename();
         System.out.println(path);
         File targetFile = new File(path, file_name);

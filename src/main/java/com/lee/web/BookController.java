@@ -46,7 +46,6 @@ public class BookController {
     private String prevPage(@PathVariable("page") Integer page, Model model) {
 
         nextOrPrePage(page, model);
-
         return "list";
     }
 
